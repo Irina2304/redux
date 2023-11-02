@@ -17,8 +17,9 @@ const rootReduser = (state = initialState, action) => {
       return {
         contacts: [...state.contacts, action.payload],
       };
+    default:
+      return state;
   }
-  return state;
 };
 
 const enhancer = devToolsEnhancer();
