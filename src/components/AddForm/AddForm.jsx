@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 export const AddForm = () => {
   //   const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  //   const contacts = useSelector(state => state.contacts);
 
   const onSubmit = evt => {
     evt.preventDefault();
