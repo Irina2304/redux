@@ -9,15 +9,32 @@ const initialState = {
     { id: 3, name: 'Artem', number: '147' },
     { id: 4, name: 'Natalia', number: '258' },
   ],
+  filter: '',
 };
 
 const rootReduser = (state = initialState, action) => {
   switch (action.type) {
     case 'contacts / addContact':
       return {
+        ...state,
         contacts: [...state.contacts, action.payload],
       };
+    case 'contacts / delContact':
+      return {
+        ...state,
+        contacts: state.contacts.filter(item => item.id != action.payload),
+      };
+
+    case 'filter / findName':
+      return {
+        ...state,
+        contacts: state.contacts.filter(item =>
+          item.name.toLowerCase().includes(action.payload.toLowerCase())
+        ),
+      };
+
     default:
+      console.log('def');
       return state;
   }
 };
@@ -36,6 +53,13 @@ export const delContact = value => {
 export const addContact = value => {
   return {
     type: 'contacts / addContact',
+    payload: value,
+  };
+};
+
+export const findName = value => {
+  return {
+    type: 'filter / findName',
     payload: value,
   };
 };
