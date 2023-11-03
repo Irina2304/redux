@@ -22,7 +22,7 @@ const rootReduser = (state = initialState, action) => {
     case 'contacts / delContact':
       return {
         ...state,
-        contacts: state.contacts.filter(item => item.id != action.payload),
+        contacts: state.contacts.filter(item => item.id !== action.payload),
       };
 
     case 'filter / findName':
