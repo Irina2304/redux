@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { findName } from 'redux/store';
+import { findName } from 'redux/filterSlise';
 
 export const Filter = () => {
   const dispatch = useDispatch();

@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { delContact } from 'redux/store';
+import { delContact } from 'redux/contactsSlice';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const { contacts } = useSelector(state => state.contacts);
   console.log(contacts);
 
   const onClick = evt => {
-    dispatch(delContact(evt.currentTarget.name));
+    console.log(evt.currentTarget.name);
+    dispatch(delContact(Number(evt.currentTarget.name)));
   };
 
   return (
